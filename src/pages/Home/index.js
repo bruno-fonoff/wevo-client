@@ -1,5 +1,4 @@
 import banner from "../../assets/images/company_logo.jpg";
-
 import "./style.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";

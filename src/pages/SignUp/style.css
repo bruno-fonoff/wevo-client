@@ -1,0 +1,20 @@
+#form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+  margin: auto;
+}
+#homeSign {
+  width: 100px;
+}
+.btn {
+  width: 200px;
+  margin: auto;
+}
+#headerSign {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  max-width: 800px;
+}
