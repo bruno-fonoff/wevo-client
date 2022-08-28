@@ -22,10 +22,19 @@ export function SignUp() {
       const response = await api.post("/user/signup", form);
       console.log(response.data);
       toast.success("Cadastrado com Sucesso");
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+      if (error.response.data.keyPattern.cpf === 1) {
+        toast.error("CPF já cadastrado!");
+      }
+      if (error.response.data.keyPattern.email === 1) {
+        toast.error("E-mail já cadastrado!");
+      }
+    }
   }
   return (
     <>
+      <Toaster position="top-center" reverseOrder={false} />
       <form onSubmit={handleSubmit}>
         <label>Nome</label>
         <input
