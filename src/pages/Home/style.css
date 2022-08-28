@@ -1,42 +1,30 @@
+#banner {
+  margin: 0 auto;
+  display: flex;
+}
 #cardsHome {
   margin: 50px;
   width: 250px;
-  height: 420px;
+  height: 350px;
   text-align: center;
   background-color: black;
-  /* box-shadow: 15px 10px 30px #ff0000; */
-  border: solid 2px white;
-  color: aliceblue;
+  box-shadow: 10px 10px 20px black;
+  color: white;
   border-radius: 20px;
 }
-#tituloCreateHome {
-  font-size: 100px;
-  text-align: center;
-  text-shadow: 10px 10px 20px #ff0000;
-  background-color: black;
-  color: antiquewhite;
-}
-#createPlay {
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  font-size: 40px;
-  border-radius: 0;
-}
+
 #home {
   display: flex;
   flex-wrap: wrap;
-  background-color: black;
+  background-color: white;
   padding-bottom: 300px;
   min-height: 720px;
   justify-content: space-around;
 }
 #fotoperfil {
-  width: 246px;
-  border-radius: 20px;
+  width: 230px;
+  border-radius: 100%;
   height: 230px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
 }
 #linkCard {
   text-decoration: none;
@@ -44,7 +32,7 @@
 }
 .card-title-home {
   margin: 10px;
-  color: dodgerblue;
+  color: aliceblue;
 }
 .card-text-home {
   margin: 10px;
@@ -54,11 +42,4 @@
 #bodyHome {
   background-color: black;
   height: 100%;
-}
-#testando {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  font-weight: 100;
 }
