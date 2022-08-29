@@ -10,12 +10,14 @@ export function Profile() {
   const [info, setInfo] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function userProfile() {
       try {
         const response = await api.get(`/user/${id}`);
         setInfo(response.data);
+        setLoading(false);
       } catch (error) {
         console.log(error);
         navigate("/error");
@@ -39,7 +41,11 @@ export function Profile() {
   }
 
   //     .slice(0, 10).split("-").reverse().join("-")
-  return (
+  return loading ? (
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  ) : (
     <>
       <Toaster />
       <div id="headerSign">
@@ -71,8 +77,13 @@ export function Profile() {
               Sexo : <b>{info.sexo}</b>
             </p>
             <p className="infosDetails">
-              Data de Nascimento : <b>{info.nascimento}</b>
-              {/* {console.log(info.nascimento)} */}
+              Data de Nascimento :{" "}
+              <b>{info.nascimento.split("-").reverse().join("-")}</b>
+            </p>
+
+            <p className="infosDetails">
+              Data do Cadastro :{" "}
+              <b>{info.creation.slice(0, 10).split("-").reverse().join("-")}</b>
             </p>
           </div>
         </div>

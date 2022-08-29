@@ -1,0 +1,15 @@
+#bannerNotFound {
+  margin: 0 auto;
+  display: flex;
+  width: 1000px;
+}
+#titleNotFound {
+  text-align: center;
+  font-size: 100px;
+  color: dodgerblue;
+}
+#homeNotFound {
+  margin: 0 auto;
+  display: flex;
+  height: 200px;
+}

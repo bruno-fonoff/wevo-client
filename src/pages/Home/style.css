@@ -5,7 +5,7 @@
 #cardsHome {
   margin: 30px;
   width: 250px;
-  height: 350px;
+  height: 400px;
   text-align: center;
   background-color: black;
   box-shadow: 10px 10px 20px black;
@@ -32,8 +32,12 @@
   color: aliceblue;
 }
 .card-title-home {
+  display: flex;
+  height: 60px;
+  align-items: center;
   margin: 10px;
   color: aliceblue;
+  justify-content: center;
 }
 .card-text-home {
   margin: 10px;
