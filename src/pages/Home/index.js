@@ -13,9 +13,13 @@ export function Home() {
 
   useEffect(() => {
     async function allUsers() {
-      const usersList = await api.get("/user/all-users");
-      setUsers(usersList.data);
-      console.log(usersList.data);
+      try {
+        const response = await api.get("/user/all-users");
+        setUsers(response.data);
+        // console.log(usersList.data);
+      } catch (error) {
+        console.error(error);
+      }
     }
     allUsers();
   }, []);
@@ -26,8 +30,6 @@ export function Home() {
 
       <img id="banner" src={banner} alt="banner wevo" />
       <div id="bodyHome">
-        <div id="tituloCreateHome"></div>
-
         <div id="home">
           {users
             .filter((currentUser) => {
@@ -37,35 +39,33 @@ export function Home() {
             })
             .map((currentUser) => {
               return (
-                <>
-                  <div id="cardsHome">
-                    <Link id="linkCard" to={`/user/${currentUser._id}`}>
-                      <div>
-                        <img
-                          id="fotoperfil"
-                          src={currentUser.sexo === "Masculino" ? user1 : user2}
-                          alt="foto-perfil"
-                        />
+                <div key={currentUser._id} id="cardsHome">
+                  <Link id="linkCard" to={`/user/${currentUser._id}`}>
+                    <div>
+                      <img
+                        id="fotoperfil"
+                        src={currentUser.sexo === "Masculino" ? user1 : user2}
+                        alt="foto-perfil"
+                      />
 
-                        <div>
-                          <div className="card-body-home">
-                            <h4 className="card-title-home">
-                              {currentUser.nome}
-                            </h4>
-                            <hr />
-                            <p className="card-text-home">
-                              {currentUser.creation
-                                .slice(0, 10)
-                                .split("-")
-                                .reverse()
-                                .join("-")}
-                            </p>
-                          </div>
+                      <div>
+                        <div className="card-body-home">
+                          <h4 className="card-title-home">
+                            {currentUser.nome}
+                          </h4>
+                          <hr />
+                          <p className="card-text-home">
+                            {currentUser.creation
+                              .slice(0, 10)
+                              .split("-")
+                              .reverse()
+                              .join("-")}
+                          </p>
                         </div>
                       </div>
-                    </Link>
-                  </div>
-                </>
+                    </div>
+                  </Link>
+                </div>
               );
             })}
         </div>

@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Edit } from "./pages/Edit";
 import { Home } from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
 import { Profile } from "./pages/Profile";
 import { SignUp } from "./pages/SignUp";
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/user/signup" element={<SignUp />} />
         <Route path="/user/:id" element={<Profile />} />
         <Route path="/user/edit/:id" element={<Edit />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

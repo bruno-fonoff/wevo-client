@@ -1,6 +1,5 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import "./style.css";
 import { api } from "../../api/api";
 import { Toaster, toast } from "react-hot-toast";
@@ -8,25 +7,22 @@ import home from "../../assets/images/home.png";
 import banner from "../../assets/images/company_logo.jpg";
 
 export function Profile() {
+  const [info, setInfo] = useState({});
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [info, setInfo] = useState({ movies: [] });
-
   useEffect(() => {
-    async function fetchDetails() {
+    async function userProfile() {
       try {
         const response = await api.get(`/user/${id}`);
         setInfo(response.data);
-        console.log(response.data);
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        console.log(error);
         navigate("/error");
       }
     }
-
-    fetchDetails();
-  }, [id]);
+    userProfile();
+  }, []);
 
   async function handleDelete() {
     try {
@@ -41,8 +37,8 @@ export function Profile() {
       console.log(error);
     }
   }
-  // console.log(info.nascimento.slice(0, 10).split("-").reverse().join("-"));
 
+  //     .slice(0, 10).split("-").reverse().join("-")
   return (
     <>
       <Toaster />
@@ -76,9 +72,7 @@ export function Profile() {
             </p>
             <p className="infosDetails">
               Data de Nascimento : <b>{info.nascimento}</b>
-            </p>
-            <p className="infosDetails">
-              Usuário Criado :<b>{info.creation}</b>
+              {/* {console.log(info.nascimento)} */}
             </p>
           </div>
         </div>

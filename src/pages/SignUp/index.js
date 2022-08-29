@@ -1,10 +1,10 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { api } from "../../api/api";
 import { toast, Toaster } from "react-hot-toast";
 import "./style.css";
 import banner from "../../assets/images/company_logo.jpg";
 import home from "../../assets/images/home.png";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import InputMask from "react-input-mask";
 
 export function SignUp() {
@@ -45,10 +45,6 @@ export function SignUp() {
       }
     }
   }
-  const inputRef = useRef(null);
-  const changeMask = () => {
-    console.log("onblur");
-  };
 
   return (
     <>
@@ -116,7 +112,6 @@ export function SignUp() {
             id="phone"
             placeholder="(00)00000-0000"
             mask="(99) 99999-9999"
-            ref={inputRef}
           />
 
           <label htmlFor="phone">Telefone</label>
